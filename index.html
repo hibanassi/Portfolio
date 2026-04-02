@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nassi Hiba | Portfolio</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+
+<body>
+
+    <!-- ═══ OVERLAY (ferme le menu au clic) ═══ -->
+    <div class="nav-overlay"></div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header">
+        <a href="#" class="logo">Hiba Nassi</a>
+
+        <!-- Hamburger : 3 <span> = 3 barres animées -->
+        <div class="menu-toggle" id="menu-toggle" aria-label="Menu" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="navbar">
+            <a href="#home" style="--i:1" class="active">Home</a>
+            <a href="#about" style="--i:2">About</a>
+            <a href="#services" style="--i:3">Services</a>
+            <a href="#skills" style="--i:4">Skills</a>
+            <a href="#projects" style="--i:5">Project</a>
+            <a href="#contact" style="--i:6">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ═══ HOME ═══ -->
+    <section class="home" id="home">
+
+        <!-- Gauche : tout le contenu textuel -->
+        <div class="home-left">
+            <h3 class="hello">Hello, It's Me</h3>
+            <h1 class="home-name">Nassi Hiba</h1>
+            <h3 class="home-role">And I'm a <span class="text"></span></h3>
+            <p class="home-desc">
+                Master's student in Intelligent Systems Engineering<br>
+                Creating modern and responsive websites with fully integrated frontend and backend solutions.
+            </p>
+
+            <div class="home-sci">
+                <a href="tel:+212608875998" style="--i:8" title="Phone"><i class='bx bx-phone'></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&to=hibanassi4@gmail.com" target="_blank"
+                    rel="noopener noreferrer" style="--i:9" title="Gmail"><i class='bx bxl-gmail'></i></a>
+                <a href="https://www.linkedin.com/in/nassi-hiba-017769352" target="_blank" rel="noopener noreferrer"
+                    style="--i:10" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/hibanassi" target="_blank" rel="noopener noreferrer" style="--i:13"
+                    title="GitHub"><i class='bx bxl-github'></i></a>
+            </div>
+
+            <div class="home-buttons">
+                <a href="#about" class="btn-box">More About Me</a>
+                <a href="cv/Nassi_Hiba_CV.pdf" download class="btn-box btn-outline">Download CV</a>
+            </div>
+        </div>
+
+        <!-- Droite : photo -->
+        <div class="home-img">
+            <img src="image/Profile.jpeg" alt="Nassi Hiba">
+        </div>
+
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="image/Hiba.jpeg" alt="Hiba">
+        </div>
+        <div class="about-text">
+            <h2>About <span>Me</span></h2>
+            <h4>Full Stack Developer &amp; AI Enthusiast</h4>
+            <p>
+                I am a Web Developer and AI Enthusiast currently pursuing a Master's degree in Intelligent Systems
+                Engineering.<br>
+                I specialize in building modern full stack applications using Angular, Node.js, JavaScript and Symfony,
+                with strong knowledge in databases such as MySQL and SQLPlus.<br>
+                In parallel, I am deeply interested in Artificial Intelligence, especially:<br>
+                • Large Language Models (LLM)<br>
+                • Retrieval-Augmented Generation (RAG)<br>
+                • Embeddings and AI Agents<br>
+                • Neural Networks using Python<br>
+                Motivated, curious, and passionate about technology, I am always looking to improve my skills and work
+                on impactful projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="section" id="services">
+        <div class="container">
+            <h1 class="sub-title">My <span>Services</span></h1>
+            <div class="services-list">
+                <div>
+                    <i class='bx bx-code' style='color:#00eeff'></i>
+                    <h2>Frontend Development</h2>
+                    <p>
+                        - Modern UI with HTML, CSS, JavaScript<br>
+                        - Development with React and Angular<br>
+                        - Responsive design<br>
+                        - Performance and accessibility optimization
+                    </p>
+                </div>
+                <div>
+                    <i class='bx bx-server' style='color:#00eeff'></i>
+                    <h2>Backend Development</h2>
+                    <p>
+                        - REST API development<br>
+                        - Backend with PHP (Symfony) or Node.js<br>
+                        - Database management with MySQL, SQLPlus<br>
+                        - Authentication &amp; security
+                    </p>
+                </div>
+                <div>
+                    <i class='bx bx-brain' style='color:#00eeff'></i>
+                    <h2>AI &amp; Intelligent Systems</h2>
+                    <p>
+                        - LLM &amp; RAG integration<br>
+                        - AI agents &amp; automation<br>
+                        - Python (Jupyter Notebook)<br>
+                        - Neural Networks
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SKILLS ═══ -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h1 class="sub-title">My <span>Skills</span></h1>
+            <div class="skills-section">
+
+                <div class="container1">
+                    <h1 class="heading1">Technical Skills</h1>
+                    <div class="Technical-bars">
+                        <div class="bar"><i class='bx bxl-html5' style='color:#c95d2e'></i>
+                            <div class="info"><span>HTML</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-css3' style='color:#147bbc'></i>
+                            <div class="info"><span>CSS</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-javascript' style='color:#b0bc1e'></i>
+                            <div class="info"><span>JavaScript</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-java' style='color:#6600ff'></i>
+                            <div class="info"><span>JAVA</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-angular' style='color:#ff1100'></i>
+                            <div class="info"><span>Angular</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-react' style='color:#69bcbc'></i>
+                            <div class="info"><span>React</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-php' style='color:#0091ff'></i>
+                            <div class="info"><span>PHP</span></div>
+                        </div>
+                        <div class="bar"><i class='bx bxl-python' style='color:#c32ec9'></i>
+                            <div class="info"><span>Python</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container1">
+                    <h1 class="heading1">Professional Skills</h1>
+                    <div class="professional-skills">
+                        <div class="skill-box"><i class='bx bx-bulb' style='color:#00eeff'></i><span>Creativity</span>
+                        </div>
+                        <div class="skill-box"><i class='bx bx-group' style='color:#00eeff'></i><span>Team Work</span>
+                        </div>
+                        <div class="skill-box"><i class='bx bx-chat'
+                                style='color:#00eeff'></i><span>Communication</span></div>
+                        <div class="skill-box"><i class='bx bx-bot' style='color:#00eeff'></i><span>Problem
+                                Solving</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h1 class="sub-title">My <span>Projects</span></h1>
+            <div class="project-container">
+
+                <div class="project-card">
+                    <img src="image/Project1.png" alt="StudyHub">
+                    <h3>StudyHub</h3>
+                    <p>A web application designed to help students manage academic resources.</p>
+                    <div class="tech">JavaScript | Twig | CSS | Symfony | MySQL</div>
+                    <div class="project-links">
+                        <a href="https://github.com/hibanassi/my-studyhub" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="image/Project2.png" alt="Projex">
+                    <h3>Projex</h3>
+                    <p>A collaborative platform for managing and tracking student projects.</p>
+                    <div class="tech">Angular | Node.js | SQLite</div>
+                    <div class="project-links">
+                        <a href="https://github.com/hibanassi/Projex" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="image/Project3.png" alt="Portfolio">
+                    <h3>Portfolio</h3>
+                    <p>A personal website showcasing my skills and projects.</p>
+                    <div class="tech">HTML | CSS | JavaScript</div>
+                    <div class="project-links">
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="contact" id="contact">
+        <h2 class="sub-title">Contact <span>Me!</span></h2>
+        <form id="contact-form">
+            <div class="input-box">
+                <input type="text" name="from_name" placeholder="Full Name" required>
+                <input type="email" name="from_email" placeholder="Email Address" required>
+            </div>
+            <div class="input-box">
+                <input type="number" name="phone" placeholder="Mobile Number">
+                <input type="text" name="subject" placeholder="Email Subject">
+            </div>
+            <textarea name="message" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

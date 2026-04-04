@@ -1,7 +1,3 @@
-/* =============================================
-   main.js — Portfolio Nassi Hiba  (FIXED)
-   ============================================= */
-
 // ─── 1. Typed.js ───
 var typed = new Typed(".text", {
     strings: ["Full Stack Developer", "AI Enthusiast", "AI Engineer"],
@@ -27,100 +23,87 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
         });
 });
 
-// ─── 3. Déclarations globales (AVANT tout usage) ───
-const sections  = document.querySelectorAll("section[id]");
-const navLinks  = document.querySelectorAll(".navbar a");
+// ─── 3. Hamburger menu animé ───
 const menuToggle = document.getElementById("menu-toggle");
 const navbar     = document.querySelector(".navbar");
 const overlay    = document.querySelector(".nav-overlay");
-const header     = document.querySelector(".header");
 
-// ─── 4. Hamburger menu ───
 function openMenu() {
     navbar.classList.add("active");
     overlay.classList.add("show");
     menuToggle.classList.add("open");
-    // NE PAS bloquer overflow ici — ça interfère avec scroll-snap
+    document.body.style.overflow = "hidden"; // bloque le scroll
 }
 
 function closeMenu() {
     navbar.classList.remove("active");
     overlay.classList.remove("show");
     menuToggle.classList.remove("open");
+    document.body.style.overflow = "";
 }
 
+// Clic sur le bouton hamburger
 menuToggle.addEventListener("click", () => {
-    navbar.classList.contains("active") ? closeMenu() : openMenu();
+    if (navbar.classList.contains("active")) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
 
+// Clic sur l'overlay → ferme
 overlay.addEventListener("click", closeMenu);
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-});
-
-// ─── 5. Clic sur un lien du menu ───
-navLinks.forEach(link => {
+// Clic sur un lien → ferme + smooth scroll
+document.querySelectorAll(".navbar a").forEach(link => {
     link.addEventListener("click", (e) => {
         const href = link.getAttribute("href");
-
-        // Ferme le menu mobile
         closeMenu();
-
-        // Met à jour le lien actif immédiatement
+        // Supprime active de tous les liens
         navLinks.forEach(l => l.classList.remove("active"));
+        // Ajoute active au lien cliqué
         link.classList.add("active");
 
         if (href && href.startsWith("#")) {
             e.preventDefault();
-
-            const targetId = href.substring(1);
-            const target   = document.getElementById(targetId);
-
-            if (!target) return;
-
-            // FIX PRINCIPAL : désactive temporairement scroll-snap
-            // pour que scrollIntoView fonctionne correctement
-            document.documentElement.style.scrollSnapType = "none";
-            document.body.style.scrollSnapType            = "none";
-
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-            // Réactive le snap après la fin de l'animation (~800ms)
-            setTimeout(() => {
-                document.documentElement.style.scrollSnapType = "";
-                document.body.style.scrollSnapType            = "";
-            }, 900);
+            const target = document.getElementById(href.substring(1));
+            if (target) {
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 300);
+            }
         }
     });
 });
 
-// ─── 6. Lien actif au scroll ───
+// Touche Escape → ferme
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+});
+
+// ─── 4. Lien actif au scroll ───
+const sections = document.querySelectorAll("section[id]");
+const navLinks  = document.querySelectorAll(".navbar a");
+
 function updateActiveLink() {
-    const scrollY    = window.pageYOffset;
-    const headerH    = header ? header.offsetHeight : 70;
-
+    let scrollY = window.pageYOffset;
     sections.forEach(section => {
-        const top    = section.offsetTop - headerH - 10;
-        const bottom = top + section.offsetHeight;
+        const sectionTop = section.offsetTop - document.querySelector(".header").offsetHeight;
+        const sectionHeight = section.offsetHeight;
 
-        if (scrollY >= top && scrollY < bottom) {
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
             navLinks.forEach(link => {
-                link.classList.toggle(
-                    "active",
-                    link.getAttribute("href") === "#" + section.getAttribute("id")
-                );
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + section.getAttribute("id")) {
+                    link.classList.add("active");
+                }
             });
         }
     });
 }
 
-// Attache bien l'événement scroll (manquait dans l'ancienne version)
-window.addEventListener("scroll", updateActiveLink, { passive: true });
-updateActiveLink(); // appel initial
-
-// ─── 7. Scroll reveal (IntersectionObserver) ───
-const revealTargets = document.querySelectorAll(
+// ─── 5. Scroll reveal (IntersectionObserver) ───
+const targets = document.querySelectorAll(
     ".about-img, .about-text, .services-list div, .project-card, .container1"
 );
 
@@ -133,4 +116,4 @@ const revealObserver = new IntersectionObserver((entries, obs) => {
     });
 }, { threshold: 0.12 });
 
-revealTargets.forEach(el => revealObserver.observe(el));
+targets.forEach(el => revealObserver.observe(el));

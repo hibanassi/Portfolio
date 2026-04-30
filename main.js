@@ -25,9 +25,9 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 // ─── 3. Hamburger menu animé ───
 const menuToggle = document.getElementById("menu-toggle");
-const navbar = document.querySelector(".navbar");
-const overlay = document.querySelector(".nav-overlay");
-const navLinks = document.querySelectorAll(".navbar a");
+const navbar     = document.querySelector(".navbar");
+const overlay    = document.querySelector(".nav-overlay");
+const navLinks  = document.querySelectorAll(".navbar a");
 
 function openMenu() {
     navbar.classList.add("active");
@@ -69,12 +69,9 @@ document.querySelectorAll(".navbar a").forEach(link => {
             e.preventDefault();
             const target = document.getElementById(href.substring(1));
             if (target) {
-                const y = target.getBoundingClientRect().top + window.pageYOffset - 70;
-
-                window.scrollTo({
-                    top: y,
-                    behavior: "smooth"
-                });
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 300);
             }
         }
     });

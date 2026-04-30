@@ -25,8 +25,9 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 // ─── 3. Hamburger menu animé ───
 const menuToggle = document.getElementById("menu-toggle");
-const navbar     = document.querySelector(".navbar");
-const overlay    = document.querySelector(".nav-overlay");
+const navbar = document.querySelector(".navbar");
+const overlay = document.querySelector(".nav-overlay");
+const navLinks = document.querySelectorAll(".navbar a");
 
 function openMenu() {
     navbar.classList.add("active");
@@ -68,9 +69,12 @@ document.querySelectorAll(".navbar a").forEach(link => {
             e.preventDefault();
             const target = document.getElementById(href.substring(1));
             if (target) {
-                setTimeout(() => {
-                    target.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 300);
+                const y = target.getBoundingClientRect().top + window.pageYOffset - 70;
+
+                window.scrollTo({
+                    top: y,
+                    behavior: "smooth"
+                });
             }
         }
     });
@@ -82,8 +86,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ─── 4. Lien actif au scroll ───
-const sections = document.querySelectorAll("section[id]");
-const navLinks  = document.querySelectorAll(".navbar a");
 
 function updateActiveLink() {
     let scrollY = window.pageYOffset;

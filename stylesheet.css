@@ -570,8 +570,8 @@ body {
 
 .project-card img {
     width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+    height: 200px; 
+    object-fit: contain;
 }
 
 .project-card h3 {

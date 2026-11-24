@@ -1,6 +1,6 @@
 // ─── 1. Typed.js ───
 var typed = new Typed(".text", {
-    strings: ["Full Stack Developer", "AI Enthusiast", "AI Engineer"],
+    strings: ["Data Scientist", "AI Engineer", "Full Stack Developer"],
     typeSpeed: 100,
     backSpeed: 80,
     backDelay: 1200,
